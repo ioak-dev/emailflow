@@ -6,7 +6,7 @@ import SpaceReducer from './SpaceReducer';
 import ProjectReducer from './ProjectReducer';
 import DomainReducer from './DomainReducer';
 import CustomEndpointReducer from './CustomEndpointReducer';
-import EndpointReducer from './EndpointReducer';
+import TemplateReducer from './TemplateReducer';
 
 export default combineReducers({
   authorization: AuthReducer,
@@ -16,5 +16,5 @@ export default combineReducers({
   project: ProjectReducer,
   domain: DomainReducer,
   customEndpoint: CustomEndpointReducer,
-  endpoint: EndpointReducer,
+  template: TemplateReducer,
 });

@@ -5,7 +5,7 @@ import { fetchAllProjects } from '../../actions/ProjectActions';
 import { fetchAllDomains } from '../../actions/DomainActions';
 import { fetchAllUsers } from '../../actions/UserActions';
 import { fetchAllCustomEndpoints } from '../../actions/CustomEndpointActions';
-import { fetchAllEndpoints } from '../../actions/EndpointActions';
+import { allTemplates } from '../../actions/TemplateActions';
 
 const Init = () => {
   const authorization = useSelector(state => state.authorization);
@@ -42,7 +42,7 @@ const Init = () => {
     dispatch(fetchAllProjects(space, authorization));
     // dispatch(fetchAllDomains(space, authorization));
     // dispatch(fetchAllCustomEndpoints(space, authorization));
-    dispatch(fetchAllEndpoints(space, authorization));
+    dispatch(allTemplates(space, authorization));
   };
   return <></>;
 };

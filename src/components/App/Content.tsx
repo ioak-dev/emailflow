@@ -28,6 +28,8 @@ import CreateProject from '../Project/CreateProject';
 import Init from './Init';
 import ViewProject from '../Project/ViewProject';
 import ListTemplate from '../Template/ListTemplate';
+import CreateTemplate from '../Template/CreateTemplate';
+import ViewTemplate from '../Template/ViewTemplate';
 
 const themes = {
   themecolor1: getTheme('#69A7BF'),
@@ -206,6 +208,30 @@ const Content = (props: Props) => {
                     {...propsLocal}
                     {...props}
                     component={ListTemplate}
+                    middleware={['readAuthentication']}
+                  />
+                )}
+              />
+              <Route
+                path="/:space/template/create"
+                exact
+                render={propsLocal => (
+                  <OakRoute
+                    {...propsLocal}
+                    {...props}
+                    component={CreateTemplate}
+                    middleware={['readAuthentication']}
+                  />
+                )}
+              />
+              <Route
+                path="/:space/template/view"
+                exact
+                render={propsLocal => (
+                  <OakRoute
+                    {...propsLocal}
+                    {...props}
+                    component={ViewTemplate}
                     middleware={['readAuthentication']}
                   />
                 )}

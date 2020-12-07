@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import './style.scss';
 import OakPage from '../../../oakui/OakPage';
@@ -9,6 +9,7 @@ import OakForm from '../../../oakui/OakForm';
 import OakSelect from '../../../oakui/OakSelect';
 import OakButton from '../../../oakui/OakButton';
 import OakFooter from '../../../oakui/OakFooter';
+import TemplateLink from './TemplateLink';
 
 const queryString = require('query-string');
 
@@ -23,16 +24,16 @@ const ListTemplate = (props: Props) => {
   const [state, setState] = useState({
     projectId: '',
   });
-  const [endpoints, setEndpoints] = useState<any[]>();
+  const [templates, setTemplates] = useState<any[]>();
   const [projectElements, setProjectElements] = useState<any>([]);
 
-  const allEndpoints = useSelector(state => state.endpoint.endpoints);
+  const allTemplates = useSelector(state => state.template.endpoints);
 
   useEffect(() => {
-    setEndpoints(
-      allEndpoints.filter(item => item.projectId === state.projectId)
+    setTemplates(
+      allTemplates.filter(item => item.projectId === state.projectId)
     );
-  }, [state.projectId, allEndpoints]);
+  }, [state.projectId, allTemplates]);
 
   useEffect(() => {
     const query = queryString.parse(props.location.search);
@@ -79,10 +80,19 @@ const ListTemplate = (props: Props) => {
                 theme="primary"
                 variant="appear"
               >
-                New endpoint
+                New template
               </OakButton>
             </OakFooter>
-            <div>hello world</div>
+            <div aria-label="List of Templates" className="list-templates">
+              {templates?.map(item => (
+                <TemplateLink
+                  key={item._id}
+                  space={props.space}
+                  history={props.history}
+                  template={item}
+                />
+              ))}
+            </div>
           </>
         )}
       </OakSection>
