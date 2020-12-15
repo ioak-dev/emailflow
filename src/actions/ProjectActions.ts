@@ -14,7 +14,7 @@ export const fetchAllProjects = (space, authorization) => dispatch => {
   }).then(response => {
     dispatch({
       type: RELOAD_PROJECTS,
-      payload: { projects: response.data.data },
+      payload: { projects: response.data },
     });
   });
 };
