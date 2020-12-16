@@ -21,6 +21,7 @@ const DetailSection = (props: Props) => {
     name: '',
     subject: '',
     body: '',
+    reference: '',
   });
 
   const [isEdited, setIsEdited] = useState(false);
@@ -41,6 +42,10 @@ const DetailSection = (props: Props) => {
     setState({
       ...state,
       name: event.currentTarget.value,
+      reference:
+        state.name === state.reference
+          ? event.currentTarget.value
+          : state.reference,
     });
     setIsEdited(true);
   };
@@ -67,6 +72,10 @@ const DetailSection = (props: Props) => {
     });
     const response = await saveTemplate(props.space, authorization, {
       ...state,
+      reference: state.reference
+        .toLowerCase()
+        .replace(/\s/g, '')
+        .replace(/\W/g, ''),
     });
     console.log(response);
     if (response.status === 200) {
@@ -89,6 +98,19 @@ const DetailSection = (props: Props) => {
             id="name"
             handleChange={handleNameChange}
             label="Template name"
+          />
+          <OakText
+            data={{
+              ...state,
+              reference: state.reference
+                .toLowerCase()
+                .replace(/\s/g, '')
+                .replace(/\W/g, ''),
+            }}
+            id="reference"
+            handleChange={handleChange}
+            disabled
+            label="Reference word for template name"
           />
           <OakText
             data={state}

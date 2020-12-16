@@ -27,6 +27,7 @@ const CreateTemplate = (props: Props) => {
     subject: '',
     body: '',
     projectId: '',
+    reference: '',
   });
 
   const authorization = useSelector(state => state.authorization);
@@ -54,6 +55,10 @@ const CreateTemplate = (props: Props) => {
     setState({
       ...state,
       name: event.currentTarget.value,
+      reference:
+        state.name === state.reference
+          ? event.currentTarget.value
+          : state.reference,
     });
   };
 
@@ -66,6 +71,10 @@ const CreateTemplate = (props: Props) => {
     });
     const response = await saveTemplate(props.space, authorization, {
       ...state,
+      reference: state.reference
+        .toLowerCase()
+        .replace(/\s/g, '')
+        .replace(/\W/g, ''),
     });
     console.log(response);
     if (response.status === 200) {
@@ -102,6 +111,19 @@ const CreateTemplate = (props: Props) => {
               id="name"
               handleChange={handleNameChange}
               label="Template name"
+            />
+            <OakText
+              data={{
+                ...state,
+                reference: state.reference
+                  .toLowerCase()
+                  .replace(/\s/g, '')
+                  .replace(/\W/g, ''),
+              }}
+              id="reference"
+              disabled
+              handleChange={handleChange}
+              label="Reference word for template name"
             />
             <OakText
               data={state}
