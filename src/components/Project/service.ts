@@ -3,7 +3,7 @@ import constants from '../Constants';
 import { sendMessage } from '../../events/MessageService';
 
 export const saveProject = async (space, authorization, payload) => {
-  const response = await httpPut(
+  const response = await httpPost(
     `${constants.API_URL_PROJECT}/${space}/`,
     payload,
     {

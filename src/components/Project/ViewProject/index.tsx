@@ -21,7 +21,7 @@ const ViewProject = (props: Props) => {
   const authorization = useSelector(state => state.authorization);
   const query = queryString.parse(props.location.search);
   const project = useSelector(state =>
-    state.project.projects.find(item => item._id === query.id)
+    state.project.projects.find(item => item.id === query.id)
   );
   const [members, setMembers] = useState<any[]>([]);
 

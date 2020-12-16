@@ -34,7 +34,7 @@ const ListProject = (props: Props) => {
         <div className="list-project">
           {projects?.map(item => (
             <ProjectLink
-              key={item._id}
+              key={item.id}
               space={props.space}
               history={props.history}
               project={item}

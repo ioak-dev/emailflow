@@ -10,9 +10,7 @@ interface Props {
 
 const TemplateLink = (props: Props) => {
   const goToViewPage = () =>
-    props.history.push(
-      `/${props.space}/template/view?id=${props.template._id}`
-    );
+    props.history.push(`/${props.space}/template/view?id=${props.template.id}`);
   return (
     <div
       aria-label="Link to view template details"

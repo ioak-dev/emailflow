@@ -1,13 +1,13 @@
-import { RELOAD_ENDPOINTS } from '../actions/types';
+import { RELOAD_TEMPLATES } from '../actions/types';
 
 const initialState = {
-  endpoints: [],
+  templates: [],
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case RELOAD_ENDPOINTS:
-      console.log('RELOAD_ENDPOINTS reducer');
+    case RELOAD_TEMPLATES:
+      console.log('RELOAD_TEMPLATES reducer');
       return {
         ...state,
         ...action.payload,

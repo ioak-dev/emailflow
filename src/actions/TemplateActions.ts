@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { RELOAD_ENDPOINTS } from './types';
+import { RELOAD_TEMPLATES } from './types';
 import { httpGet } from '../components/Lib/RestTemplate';
 import constants from '../components/Constants';
 
@@ -9,10 +9,9 @@ export const allTemplates = (space, authorization) => dispatch => {
       Authorization: authorization.token,
     },
   }).then(response => {
-    console.log(response.data.data);
     dispatch({
-      type: RELOAD_ENDPOINTS,
-      payload: { endpoints: response.data.data },
+      type: RELOAD_TEMPLATES,
+      payload: { templates: response.data },
     });
   });
 };

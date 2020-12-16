@@ -38,7 +38,7 @@ const Init = () => {
 
   const initialize = () => {
     console.log('Initialization logic here');
-    dispatch(fetchAllUsers(space, authorization));
+    // dispatch(fetchAllUsers(space, authorization));
     dispatch(fetchAllProjects(space, authorization));
     // dispatch(fetchAllDomains(space, authorization));
     // dispatch(fetchAllCustomEndpoints(space, authorization));

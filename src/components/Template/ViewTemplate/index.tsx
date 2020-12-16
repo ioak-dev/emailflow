@@ -18,7 +18,7 @@ interface Props {
 const ViewTemplate = (props: Props) => {
   const query = queryString.parse(props.location.search);
   const template = useSelector(state =>
-    state.template.endpoints.find(item => item._id === query.id)
+    state.template.templates.find(item => item.id === query.id)
   );
 
   const tabMeta = [

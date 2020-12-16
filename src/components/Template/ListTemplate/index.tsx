@@ -27,7 +27,7 @@ const ListTemplate = (props: Props) => {
   const [templates, setTemplates] = useState<any[]>();
   const [projectElements, setProjectElements] = useState<any>([]);
 
-  const allTemplates = useSelector(state => state.template.endpoints);
+  const allTemplates = useSelector(state => state.template.templates);
 
   useEffect(() => {
     setTemplates(
@@ -43,7 +43,7 @@ const ListTemplate = (props: Props) => {
   useEffect(() => {
     const localState: any[] = [];
     projects.map(item => {
-      localState.push({ key: item._id, value: item.name });
+      localState.push({ key: item.id, value: item.name });
     });
     setProjectElements(localState);
   }, [projects]);
@@ -86,7 +86,7 @@ const ListTemplate = (props: Props) => {
             <div aria-label="List of Templates" className="list-templates">
               {templates?.map(item => (
                 <TemplateLink
-                  key={item._id}
+                  key={item.id}
                   space={props.space}
                   history={props.history}
                   template={item}

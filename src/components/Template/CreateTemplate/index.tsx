@@ -24,8 +24,8 @@ const CreateTemplate = (props: Props) => {
   const goBack = () => props.history.goBack();
   const [state, setState] = useState({
     name: '',
-    description: '',
-    reference: '',
+    subject: '',
+    body: '',
     projectId: '',
   });
 
@@ -43,14 +43,17 @@ const CreateTemplate = (props: Props) => {
     });
   };
 
+  const handleSubjectChange = event => {
+    setState({
+      ...state,
+      subject: event.currentTarget.value,
+    });
+  };
+
   const handleNameChange = event => {
     setState({
       ...state,
       name: event.currentTarget.value,
-      reference:
-        state.name === state.reference
-          ? event.currentTarget.value
-          : state.reference,
     });
   };
 
@@ -59,21 +62,17 @@ const CreateTemplate = (props: Props) => {
     sendMessage('notification', true, {
       id: jobId,
       type: 'running',
-      message: `Saving template [${state.name}]`,
+      message: `Saving template [${state.subject}]`,
     });
     const response = await saveTemplate(props.space, authorization, {
       ...state,
-      reference: state.reference
-        .toLowerCase()
-        .replace(/\s/g, '')
-        .replace(/\W/g, ''),
     });
     console.log(response);
     if (response.status === 200) {
       sendMessage('notification', true, {
         id: jobId,
         type: 'success',
-        message: `Template [${state.name}] saved successfully`,
+        message: `Template [${state.subject}] saved successfully`,
         duration: 3000,
       });
       props.history.push(
@@ -102,25 +101,19 @@ const CreateTemplate = (props: Props) => {
               data={state}
               id="name"
               handleChange={handleNameChange}
-              label="Template name"
-            />
-            <OakText
-              data={{
-                ...state,
-                reference: state.reference
-                  .toLowerCase()
-                  .replace(/\s/g, '')
-                  .replace(/\W/g, ''),
-              }}
-              id="reference"
-              handleChange={handleChange}
-              label="Reference word for URL path prefix"
+              label="Name"
             />
             <OakText
               data={state}
-              id="description"
+              id="subject"
+              handleChange={handleSubjectChange}
+              label="Subject"
+            />
+            <OakText
+              data={state}
+              id="body"
               handleChange={handleChange}
-              label="Short description about the template"
+              label="Template body"
               multiline
             />
           </OakForm>
