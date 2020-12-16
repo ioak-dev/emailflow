@@ -94,13 +94,13 @@ const DetailSection = (props: Props) => {
             data={state}
             id="subject"
             handleChange={handleSubjectChange}
-            label="Subject"
+            label="Email subject"
           />
           <OakText
             data={state}
             id="body"
             handleChange={handleChange}
-            label="Template Body"
+            label="Email body"
             multiline
           />
         </OakForm>

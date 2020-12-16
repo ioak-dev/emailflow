@@ -101,19 +101,19 @@ const CreateTemplate = (props: Props) => {
               data={state}
               id="name"
               handleChange={handleNameChange}
-              label="Name"
+              label="Template name"
             />
             <OakText
               data={state}
               id="subject"
               handleChange={handleSubjectChange}
-              label="Subject"
+              label="Email subject"
             />
             <OakText
               data={state}
               id="body"
               handleChange={handleChange}
-              label="Template body"
+              label="Email body"
               multiline
             />
           </OakForm>
