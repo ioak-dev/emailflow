@@ -44,8 +44,8 @@ const DetailSection = (props: Props) => {
       name: event.currentTarget.value,
       reference:
         state.name === state.reference
-          ? event.currentTarget.value
-          : state.reference,
+          ? state.reference
+          : event.currentTarget.value,
     });
     setIsEdited(true);
   };
