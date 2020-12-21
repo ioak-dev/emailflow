@@ -7,6 +7,7 @@ import ProjectReducer from './ProjectReducer';
 import DomainReducer from './DomainReducer';
 import CustomEndpointReducer from './CustomEndpointReducer';
 import TemplateReducer from './TemplateReducer';
+import EmailServerReducer from './EmailServerReducer';
 
 export default combineReducers({
   authorization: AuthReducer,
@@ -17,4 +18,5 @@ export default combineReducers({
   domain: DomainReducer,
   customEndpoint: CustomEndpointReducer,
   template: TemplateReducer,
+  emailServer: EmailServerReducer,
 });

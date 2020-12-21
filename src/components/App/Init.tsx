@@ -6,6 +6,7 @@ import { fetchAllDomains } from '../../actions/DomainActions';
 import { fetchAllUsers } from '../../actions/UserActions';
 import { fetchAllCustomEndpoints } from '../../actions/CustomEndpointActions';
 import { allTemplates } from '../../actions/TemplateActions';
+import { allEmailServers } from '../../actions/EmailServerActions';
 
 const Init = () => {
   const authorization = useSelector(state => state.authorization);
@@ -43,6 +44,7 @@ const Init = () => {
     // dispatch(fetchAllDomains(space, authorization));
     // dispatch(fetchAllCustomEndpoints(space, authorization));
     dispatch(allTemplates(space, authorization));
+    dispatch(allEmailServers(space, authorization));
   };
   return <></>;
 };

@@ -30,6 +30,9 @@ import ViewProject from '../Project/ViewProject';
 import ListTemplate from '../Template/ListTemplate';
 import CreateTemplate from '../Template/CreateTemplate';
 import ViewTemplate from '../Template/ViewTemplate';
+import ListEmailServer from '../EmailServer/ListEmailServer';
+import CreateEmailServer from '../EmailServer/CreateEmailServer';
+import ViewEmailServer from '../EmailServer/ViewEmailServer';
 
 const themes = {
   themecolor1: getTheme('#69A7BF'),
@@ -232,6 +235,42 @@ const Content = (props: Props) => {
                     {...propsLocal}
                     {...props}
                     component={ViewTemplate}
+                    middleware={['readAuthentication']}
+                  />
+                )}
+              />
+              <Route
+                path="/:space/email-server"
+                exact
+                render={propsLocal => (
+                  <OakRoute
+                    {...propsLocal}
+                    {...props}
+                    component={ListEmailServer}
+                    middleware={['readAuthentication']}
+                  />
+                )}
+              />
+              <Route
+                path="/:space/email-server/create"
+                exact
+                render={propsLocal => (
+                  <OakRoute
+                    {...propsLocal}
+                    {...props}
+                    component={CreateEmailServer}
+                    middleware={['readAuthentication']}
+                  />
+                )}
+              />
+              <Route
+                path="/:space/email-server/view"
+                exact
+                render={propsLocal => (
+                  <OakRoute
+                    {...propsLocal}
+                    {...props}
+                    component={ViewEmailServer}
                     middleware={['readAuthentication']}
                   />
                 )}
