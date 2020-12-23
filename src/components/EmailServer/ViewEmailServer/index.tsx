@@ -23,16 +23,21 @@ const ViewEmailServer = (props: Props) => {
 
   const tabMeta = [
     {
-      slotName: 'overview',
-      label: 'Overview',
-      icon: 'dehaze',
+      slotName: 'settings',
+      label: 'Settings',
+      icon: 'settings',
+    },
+    {
+      slotName: 'endpoints',
+      label: 'Endpoints',
+      icon: 'code',
     },
   ];
 
   return (
     <OakPage>
       <OakTab meta={tabMeta} variant="fullpage">
-        <div slot="overview">
+        <div slot="settings">
           <OakSection>
             <DetailSection
               emailServer={emailServer}
@@ -40,6 +45,9 @@ const ViewEmailServer = (props: Props) => {
               history={props.history}
             />
           </OakSection>
+        </div>
+        <div slot="endpoints">
+          <OakSection>endpoint details here</OakSection>
         </div>
       </OakTab>
     </OakPage>
