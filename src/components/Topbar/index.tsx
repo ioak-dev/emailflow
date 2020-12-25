@@ -45,9 +45,7 @@ const Topbar = (props: Props) => {
         <div className="topbar--left--nav desktop-only">
           <Links space={props.space} />
         </div>
-        <div className="mobile-only">
-          <Logo />
-        </div>
+        {/* <div className="mobile-only"><Logo /></div> */}
       </div>
       <div className="topbar--right">
         <RightNav cookies={props.cookies} />
