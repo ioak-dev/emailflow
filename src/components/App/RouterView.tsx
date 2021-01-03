@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Route } from 'react-router-dom';
-import './style.scss';
+import './RouterView.scss';
 import Home from '../Home';
 import OaLogin from '../Auth/OaLogin';
 import Landing from '../Landing';
@@ -22,18 +22,7 @@ import CreateEmailServer from '../EmailServer/CreateEmailServer';
 import ViewEmailServer from '../EmailServer/ViewEmailServer';
 
 interface Props {
-  getProfile: Function;
-  setProfile: Function;
-  getAuth: Function;
-  addAuth: Function;
-  removeAuth: Function;
-  getUser: Function;
-  addUser: Function;
   cookies: any;
-
-  // event: PropTypes.object,
-  profile: any;
-  authorization: Authorization;
 }
 
 const RouterView = (props: Props) => {

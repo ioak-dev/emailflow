@@ -18,22 +18,23 @@ const Init = () => {
   useEffect(() => {
     if (
       authorization.isAuth &&
-      authorization.isAuth !== previousAuthorizationState.isAuth &&
+      // authorization.isAuth !== previousAuthorizationState.isAuth &&
       space
     ) {
       initialize();
     }
     setPreviousAuthorizationState(authorization);
-  }, [authorization]);
+  }, [authorization, space]);
 
   useEffect(() => {
     receiveMessage().subscribe(event => {
+      console.log(event);
       if (event.name === 'spaceChange') {
         setSpace(event.data);
       }
-      if (event.name === 'spaceChange' && authorization.isAuth) {
-        initialize();
-      }
+      // if (event.name === 'spaceChange' && authorization.isAuth) {
+      //   initialize();
+      // }
     });
   }, []);
 
