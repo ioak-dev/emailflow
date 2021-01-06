@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import './style.scss';
 import OakPage from '../../../oakui/OakPage';
@@ -8,6 +8,8 @@ import DetailSection from './DetailSection';
 import OakTab from '../../../oakui/OakTab';
 import { getProjectMembers } from '../service';
 import MemberSection from './MemberSection';
+import ApiKeySection from './ApiKeySection';
+import { fetchAllApiKeys } from '../../../actions/ApiKeyActions';
 
 const queryString = require('query-string');
 
@@ -18,6 +20,7 @@ interface Props {
 }
 
 const ViewProject = (props: Props) => {
+  const dispatch = useDispatch();
   const authorization = useSelector(state => state.authorization);
   const query = queryString.parse(props.location.search);
   const project = useSelector(state =>
@@ -61,6 +64,11 @@ const ViewProject = (props: Props) => {
       label: 'Administrators',
       icon: 'admin_panel_settings',
     },
+    {
+      slotName: 'apikey',
+      label: 'Api Keys',
+      icon: 'vpn_key',
+    },
   ];
 
   return (
@@ -98,6 +106,18 @@ const ViewProject = (props: Props) => {
               refresh={fetchMembers}
             />
           </OakSection>
+        </div>
+        <div slot="apikey">
+          {project &&
+          <OakSection>
+            <ApiKeySection
+              domainId={project.id}
+              scope="PROJECT"
+              space={props.space}
+              history={props.history}
+              refresh={() => dispatch(fetchAllApiKeys(props.space, authorization))}
+            />
+          </OakSection>}
         </div>
       </OakTab>
     </OakPage>

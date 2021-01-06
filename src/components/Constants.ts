@@ -28,6 +28,7 @@ const constants = {
   API_URL_ENDPOINT_CUSTOM: '/endpoint/custom',
   API_URL_TEMPLATE: '/template',
   API_URL_EMAIL_SERVER: '/email-server',
+  API_URL_API_KEY: '/apikey',
 };
 
 export default constants;

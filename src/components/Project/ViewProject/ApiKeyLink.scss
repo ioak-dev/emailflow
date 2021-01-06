@@ -1,0 +1,13 @@
+.api-key-link {
+    display: flex;
+    align-items: center;
+    .api-key-link--action {
+        cursor: pointer;
+        &:hover {
+            color: var(--color-primary-1);
+        }
+        .material-icons {
+            display: block;
+        }
+    }
+}

@@ -8,6 +8,7 @@ import DomainReducer from './DomainReducer';
 import CustomEndpointReducer from './CustomEndpointReducer';
 import TemplateReducer from './TemplateReducer';
 import EmailServerReducer from './EmailServerReducer';
+import ApiKeyReducer from './ApiKeyReducer';
 
 export default combineReducers({
   authorization: AuthReducer,
@@ -19,4 +20,5 @@ export default combineReducers({
   customEndpoint: CustomEndpointReducer,
   template: TemplateReducer,
   emailServer: EmailServerReducer,
+  apiKey: ApiKeyReducer,
 });

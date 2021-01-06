@@ -27,7 +27,7 @@ interface Props {
 
 const RouterView = (props: Props) => {
   return (
-    <div className="app-container--main--body">
+    <div className="router-view">
       <Route
         path="/login"
         render={propsLocal => (
