@@ -10,6 +10,7 @@ import { getProjectMembers } from '../service';
 import MemberSection from './MemberSection';
 import ApiKeySection from './ApiKeySection';
 import { fetchAllApiKeys } from '../../../actions/ApiKeyActions';
+import { Dehaze, People, Settings, VpnKey } from '@material-ui/icons';
 
 const queryString = require('query-string');
 
@@ -52,22 +53,22 @@ const ViewProject = (props: Props) => {
     {
       slotName: 'overview',
       label: 'Overview',
-      icon: 'dehaze',
+      icon: <Dehaze />
     },
     {
       slotName: 'member',
       label: 'Members',
-      icon: 'people',
+      icon: <People />
     },
     {
       slotName: 'administrator',
       label: 'Administrators',
-      icon: 'admin_panel_settings',
+      icon: <Settings />
     },
     {
       slotName: 'apikey',
       label: 'Api Keys',
-      icon: 'vpn_key',
+      icon: <VpnKey />,
     },
   ];
 

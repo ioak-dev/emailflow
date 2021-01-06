@@ -5,7 +5,7 @@ const initialState = {
   textSize: 'textsize_medium',
   themeColor: 'themecolor1',
   sidebar: false,
-  hideSidebarOnDesktop: false,
+  hideSidebarOnDesktop: true,
 };
 
 export default function(state = initialState, action) {

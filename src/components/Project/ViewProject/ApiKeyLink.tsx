@@ -1,3 +1,4 @@
+import { Delete } from '@material-ui/icons';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { newMessageId, sendMessage } from '../../../events/MessageService';
@@ -43,8 +44,8 @@ const ApiKeyLink = (props: Props) => {
 
   return (
     <div className="api-key-link">
-      <div className="api-key-link--text">{props.apiKey.id}</div>
-      <div className="api-key-link--action" onClick={remove}><i className="material-icons">delete</i></div>
+      <div className="api-key-link--text">{props.apiKey.key}</div>
+      <div className="api-key-link--action" onClick={remove}><Delete /></div>
     </div>
   );
 };

@@ -7,7 +7,7 @@ interface Props {
   subtitle?: string;
   links?: {
     label: string;
-    icon?: string;
+    icon?: any;
     action: any;
   }[];
   linkSize?: 'large';

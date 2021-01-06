@@ -13,7 +13,7 @@ const Logo = () => {
 
   return (
     <div className="logo">
-    {profile.theme === 'theme_light' && <img className="logo--image" src={emailflowBlack} alt="Emailflow logo" />}
+    {profile.theme === 'theme_light' && <img className="logo--image" src={emailflowWhite} alt="Emailflow logo" />}
     {profile.theme !== 'theme_light' && <img className="logo--image" src={emailflowWhite} alt="Emailflow logo" />}
     </div>
   );

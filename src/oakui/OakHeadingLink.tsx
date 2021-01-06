@@ -5,7 +5,7 @@ interface Props {
   size?: 'large';
   link: {
     label: string;
-    icon?: string;
+    icon?: any;
     action: any;
   };
 }
@@ -16,7 +16,7 @@ const OakHeadingLink = (props: Props) => {
   };
   return (
     <div className="oak-heading-link" onClick={() => props.link.action()}>
-      <i className="material-icons typography-6">{props.link.icon}</i>
+      {props.link.icon && props.link.icon}
       <div className={`heading-link-label ${getLinkSize()}`}>
         {props.link.label}
       </div>

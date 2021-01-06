@@ -7,6 +7,7 @@ import OakSection from '../../../oakui/OakSection';
 import OakHeading from '../../../oakui/OakHeading';
 import OakSubheading from '../../../oakui/OakSubheading';
 import ProjectLink from './ProjectLink';
+import { PlaylistAdd } from '@material-ui/icons';
 
 interface Props {
   space: string;
@@ -25,7 +26,7 @@ const ListProject = (props: Props) => {
           links={[
             {
               label: 'New project',
-              icon: 'playlist_add',
+              icon: <PlaylistAdd />,
               action: gotoCreatePage,
             },
           ]}
